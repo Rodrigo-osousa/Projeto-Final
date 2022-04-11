@@ -4,6 +4,8 @@ public class SpecialAccount extends Account{
     private Integer idSpecialAccount;
     private Double limitAmount;
 
+
+
     public Integer getIdSpecialAccount() {
         return idSpecialAccount;
     }
@@ -19,4 +21,10 @@ public class SpecialAccount extends Account{
     public void setLimitAmount(Double limitAmount) {
         this.limitAmount = limitAmount;
     }
+
+    public void specialWithdraw(){
+
+    }
+
+
 }

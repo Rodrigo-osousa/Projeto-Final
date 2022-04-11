@@ -1,64 +1,79 @@
 package model.account;
 
+import model.creditCard.CreditCard;
 import model.customer.Individual;
 import model.customer.LegalEntity;
 import model.enumeration.AccountType;
-import model.creditCard.CreditCard;
 
-abstract class Account {
-    private String accountNumber;
-    private Double balance;
-    private CreditCard creditCard;
-    private AccountType accountType;
-    private Individual individual;
-    private LegalEntity legalEntity;
+public abstract class Account {
+    public String accountNumber;
+    public Double balance = 0.00;
+    public CreditCard creditCard;
+    public AccountType accountType;
+    public Individual individual;
+    public LegalEntity legalEntity;
 
 
     public String getAccountNumber() {
         return accountNumber;
     }
 
-    public void setAccountNumber(String accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
     public Double getBalance() {
         return balance;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
     }
 
     public CreditCard getCreditCard() {
         return creditCard;
     }
 
-    public void setCreditCard(CreditCard creditCard) {
-        this.creditCard = creditCard;
-    }
-
     public AccountType getAccountType() {
         return accountType;
-    }
-
-    public void setAccountType(AccountType accountType) {
-        this.accountType = accountType;
     }
 
     public Individual getIndividual() {
         return individual;
     }
 
-    public void setIndividual(Individual individual) {
-        this.individual = individual;
-    }
-
     public LegalEntity getLegalEntity() {
         return legalEntity;
     }
 
-    public void setLegalEntity(LegalEntity legalEntity) {
-        this.legalEntity = legalEntity;
+
+    //Método utilizado para trânsferir
+    public Boolean transferMoney(Account destinationAccount, double money) {
+        if(this.getBalance() >= money){
+          this.balance = this.balance - money;
+          destinationAccount.balance = destinationAccount.balance + money;
+          return true;
+        }else{
+            System.out.println("Saldo insuficiente!");
+                return false;
+        }
     }
+
+    //Método utilizado para consultar saldo
+    public Double checkBalance(String accountNumber) {
+        if(accountNumber.isEmpty()){
+            System.out.println("Conta não existe!");
+        } else
+            System.out.println("Seu saldo é de US$ " );
+            return balance;
+    }
+
+    //Método utilizado para sacar dinheiro
+    public Boolean withdrawCash(String accountNumber) {
+
+        return true;
+    }
+
+    //Método utilizado para depositar dinheiro
+    public void cashDeposit(String accountNumber) {
+
+    }
+
+    //Método utilizado para consultar dados da conta
+    public void obtainAccountData(String accountNumber) {
+
+    }
+
 }
