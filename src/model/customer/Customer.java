@@ -2,7 +2,7 @@ package model.customer;
 
 import model.enumeration.CostumerType;
 
-abstract class Customer {
+public abstract class Customer {
     private String address;
     private CostumerType costumerType;
 

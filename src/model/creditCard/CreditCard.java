@@ -5,6 +5,9 @@ public class CreditCard {
     private String cardNumber;
     private Double cardLimit;
 
+    public CreditCard() {
+    }
+
     public Integer getIdCreditCard() {
         return idCreditCard;
     }
