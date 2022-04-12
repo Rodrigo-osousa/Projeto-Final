@@ -5,6 +5,15 @@ public class LegalEntity {
     private String cnpj;
     private String companyName;
 
+    public LegalEntity() {
+    }
+
+    public LegalEntity(Integer idLegalEntity, String cnpj, String companyName) {
+        this.idLegalEntity = idLegalEntity;
+        this.cnpj = cnpj;
+        this.companyName = companyName;
+    }
+
     public Integer getIdLegalEntity() {
         return idLegalEntity;
     }
