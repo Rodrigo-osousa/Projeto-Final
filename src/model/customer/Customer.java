@@ -1,10 +1,11 @@
 package model.customer;
 
-import model.enumeration.CostumerType;
+import model.enumeration.CustomerType;
 
 public abstract class Customer {
     private String address;
-    private CostumerType costumerType;
+    private CustomerType customerType;
+
 
     public String getAddress() {
         return address;
@@ -14,11 +15,11 @@ public abstract class Customer {
         this.address = address;
     }
 
-    public CostumerType getCostumerType() {
-        return costumerType;
+    public CustomerType getCostumerType() {
+        return customerType;
     }
 
-    public void setCostumerType(CostumerType costumerType) {
-        this.costumerType = costumerType;
+    public void setCostumerType(CustomerType customerType) {
+        this.customerType = customerType;
     }
 }
