@@ -1,8 +1,7 @@
 package model.account;
 
 import model.creditCard.CreditCard;
-import model.customer.Individual;
-import model.customer.LegalEntity;
+import model.customer.Customer;
 import model.enumeration.AccountType;
 
 public class CurrentAccount extends Account{
@@ -11,15 +10,6 @@ public class CurrentAccount extends Account{
     public CurrentAccount() {
     }
 
-    public CurrentAccount(Integer idCurrentAccout,String accountNumber, Double balance, CreditCard creditCard, AccountType accountType, Individual individual, LegalEntity legalEntity) {
-        this.idCurrentAccout = idCurrentAccout;
-        this.accountNumber = accountNumber;
-        this.balance = balance;
-        this.creditCard = creditCard;
-        this.accountType = accountType;
-        this.individual = individual;
-        this.legalEntity = legalEntity;
-    }
 
     public Integer getIdCurrentAccout() {
 
@@ -47,12 +37,10 @@ public class CurrentAccount extends Account{
         this.accountType = accountType;
     }
 
-    public void setIndividual(Individual individual) {
-        this.individual = individual;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 
-    public void setLegalEntity(LegalEntity legalEntity) {
-        this.legalEntity = legalEntity;
-    }
+
 
 }

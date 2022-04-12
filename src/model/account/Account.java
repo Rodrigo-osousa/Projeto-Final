@@ -1,18 +1,20 @@
 package model.account;
 
 import model.creditCard.CreditCard;
-import model.customer.Individual;
-import model.customer.LegalEntity;
+import model.customer.Customer;
 import model.enumeration.AccountType;
+import model.enumeration.CustomerType;
 
 public abstract class Account {
     public String accountNumber;
-    public Double balance = 0.00;
+    public Double balance;
     public CreditCard creditCard;
     public AccountType accountType;
-    public Individual individual;
-    public LegalEntity legalEntity;
+    public CustomerType customerType;
+    public Customer customer;
 
+
+    public Customer getCustomer() {return customer;}
 
     public String getAccountNumber() {
         return accountNumber;
@@ -30,13 +32,7 @@ public abstract class Account {
         return accountType;
     }
 
-    public Individual getIndividual() {
-        return individual;
-    }
-
-    public LegalEntity getLegalEntity() {
-        return legalEntity;
-    }
+    public CustomerType getCostumerType() {return customerType;}
 
 
     //Método utilizado para trânsferir
@@ -56,23 +52,43 @@ public abstract class Account {
         if(accountNumber.isEmpty()){
             System.out.println("Conta não existe!");
         } else
-            System.out.println("Seu saldo é de US$ " );
+            System.out.println("Seu saldo é de R$ " + getBalance());
             return balance;
     }
 
     //Método utilizado para sacar dinheiro
-    public Boolean withdrawCash(String accountNumber) {
+    public Boolean withdrawCash(double money) {
+        if(this.balance >= money) {
+            this.balance = getBalance() - money;
+            return true;
+        } else {
+            System.out.println("Saldo insuficiente");
+            return false;
+        }
 
-        return true;
     }
 
     //Método utilizado para depositar dinheiro
-    public void cashDeposit(String accountNumber) {
-
+    public void cashDeposit(double money) {
+        this.balance = getBalance() + money;
+        System.out.println("Seu saldo é de R$ " + getBalance());
     }
 
     //Método utilizado para consultar dados da conta
     public void obtainAccountData(String accountNumber) {
+        System.out.println("Número da conta: " + getAccountNumber());
+        System.out.println("Saldo da conta: " + getBalance());
+        System.out.println("Cartão de crédito da conta: " + getCreditCard());
+        if(this.getAccountType().equals(AccountType.CURRENT_ACCOUNT)){
+            System.out.println("Tipo da conta: CONTA CORRENTE" );
+        }else{
+            System.out.println("Tipo da conta: CONTA ESPECIAL");
+        }
+        if(this.customer.getCostumerType().equals(CustomerType.INDIVIDUAL)){
+            System.out.println("Tipo de Cliente: Pessoa Física");
+        }else{
+            System.out.println("Tipo de Cliente: Pessoa Jurídica");
+        }
 
     }
 

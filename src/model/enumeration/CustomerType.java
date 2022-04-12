@@ -1,6 +1,6 @@
 package model.enumeration;
 
-public enum CostumerType {
+public enum CustomerType {
     LEGAL_ENTITY, INDIVIDUAL;
 
 }
