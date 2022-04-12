@@ -5,6 +5,15 @@ public class Individual extends Customer{
     private String cpf;
     private String customerName;
 
+    public Individual() {
+    }
+
+    public Individual(Integer idCustomerIndiv, String cpf, String customerName) {
+        this.idCustomerIndiv = idCustomerIndiv;
+        this.cpf = cpf;
+        this.customerName = customerName;
+    }
+
     public Integer getIdCustomerIndiv() {
         return idCustomerIndiv;
     }
