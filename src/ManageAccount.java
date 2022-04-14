@@ -1,6 +1,9 @@
 import model.account.CurrentAccount;
+import model.account.SpecialAccount;
 import model.creditCard.CreditCard;
+import model.customer.Customer;
 import model.customer.Individual;
+import model.customer.LegalEntity;
 import model.enumeration.AccountType;
 import model.enumeration.CustomerType;
 
@@ -13,7 +16,26 @@ public class ManageAccount {
         CreditCard creditCard = new CreditCard();
         Individual individual = new Individual();
         CurrentAccount currentAccount = new CurrentAccount();
+        LegalEntity legal = new LegalEntity();
+        CreditCard creditCard2 = new CreditCard();
+        SpecialAccount specialAccount = new SpecialAccount();
+
         int selectOption;
+
+        legal.setIdLegalEntity(1);
+        legal.setCnpj("11111111/0001-00");
+        legal.setCompanyName("Wipro Bank");
+        legal.setCostumerType(CustomerType.LEGAL_ENTITY);
+
+        creditCard2.setIdCreditCard(2);
+        creditCard2.setCardLimit(1000.00);
+        creditCard2.setCardNumber("1111-1111-1111-1111");
+
+        specialAccount.setIdSpecialAccount(1);
+        specialAccount.setLimitAmount(1000.00);
+        specialAccount.setAccountType(AccountType.ESPECIAL_ACCOUNT);
+        specialAccount.setCustomer(legal);
+
 
         individual.setIdCustomerIndiv(1);
         individual.setCustomerName("Test");
@@ -31,33 +53,46 @@ public class ManageAccount {
         currentAccount.setBalance(1000.000);
         currentAccount.setCreditCard(creditCard);
 
-        System.out.println("Digite uma opção \n" +
-                "1 (para sacar)\n" +
-                "2 (para depositar\n" +
-                "3 (para extrato\n" +
-                "4 (Informações da sua conta)");
-        selectOption = scanner.nextInt();
+        do {
 
-        switch (selectOption){
-            case 1:
-                System.out.println("Digite o valor para saque: ");
-                double withdrawCash = scanner.nextDouble();
-                currentAccount.withdrawCash(withdrawCash);
-                currentAccount.checkBalance(currentAccount.getAccountNumber());
-            break;
-            case 2:
-                System.out.println("Digite o valor do depósito: ");
-                double depositAmount = scanner.nextDouble();
-                currentAccount.cashDeposit(depositAmount);
-            break;
-            case 3:
-                currentAccount.checkBalance(currentAccount.getAccountNumber());
-            break;
-            case 4:
-                currentAccount.obtainAccountData(currentAccount.getAccountNumber());
-            break;
-            default:
-                System.out.println("Opção não encontrada. Tente novamente!");
-        }
+            System.out.println("Digite uma opção :\n" +
+                    "1 (Para sacar)\n" +
+                    "2 (Para depositar)\n" +
+                    "3 (Para extrato)\n" +
+                    "4 (Informações da sua conta)\n" +
+                    "5 (Saque Especial)\n" +
+                    "6 (Encerrar)");
+
+            selectOption = scanner.nextInt();
+
+            switch (selectOption) {
+                case 1:
+                    System.out.println("Digite o valor para saque: ");
+                    double withdrawCash = scanner.nextDouble();
+                    currentAccount.withdrawCash(withdrawCash);
+                    currentAccount.checkBalance(currentAccount.getAccountNumber());
+                    break;
+                case 2:
+                    System.out.println("Digite o valor do depósito: ");
+                    double depositAmount = scanner.nextDouble();
+                    currentAccount.cashDeposit(depositAmount);
+                    break;
+                case 3:
+                    currentAccount.checkBalance(currentAccount.getAccountNumber());
+                    break;
+                case 4:
+                    currentAccount.obtainAccountData(currentAccount.getAccountNumber());
+                    break;
+                case 5:
+                    if (individual.getAc ==) {
+
+                    }
+                case 6:
+                    System.out.println("Fim");
+                    break;
+                default:
+                    System.out.println("Opção não encontrada. Tente novamente!");
+            }
+        }while (selectOption != 6);
     }
 }
