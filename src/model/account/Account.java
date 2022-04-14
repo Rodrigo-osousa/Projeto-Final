@@ -52,7 +52,7 @@ public abstract class Account {
         if(accountNumber.isEmpty()){
             System.out.println("Conta não existe!");
         } else
-            System.out.println("Seu saldo é de R$ " + getBalance());
+            System.out.println("Seu saldo atual é de R$ " + getBalance());
             return balance;
     }
 
@@ -78,7 +78,7 @@ public abstract class Account {
     public void obtainAccountData(String accountNumber) {
         System.out.println("Número da conta: " + getAccountNumber());
         System.out.println("Saldo da conta: " + getBalance());
-        System.out.println("Cartão de crédito da conta: " + getCreditCard());
+        System.out.println("Cartão de crédito da conta: " + getCreditCard().getCardNumber());
         if(this.getAccountType().equals(AccountType.CURRENT_ACCOUNT)){
             System.out.println("Tipo da conta: CONTA CORRENTE" );
         }else{
