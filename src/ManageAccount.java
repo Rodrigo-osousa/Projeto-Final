@@ -84,9 +84,16 @@ public class ManageAccount {
                     currentAccount.obtainAccountData(currentAccount.getAccountNumber());
                     break;
                 case 5:
-                    if (individual.getAc ==) {
-
+                    if(currentAccount.getAccountType() == AccountType.CURRENT_ACCOUNT){
+                        System.out.println("Sua conta não possui essa função!");
                     }
+                    else if(specialAccount.getAccountType() == AccountType.ESPECIAL_ACCOUNT) {
+                        System.out.println("Digite o valor para saque: ");
+                        double specialWithdrawValue = scanner.nextDouble();
+                        specialAccount.specialWithdraw(specialWithdrawValue);
+                        specialAccount.checkBalance(specialAccount.getAccountNumber());
+                    }
+                    break;
                 case 6:
                     System.out.println("Fim");
                     break;
