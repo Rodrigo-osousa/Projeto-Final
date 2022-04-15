@@ -4,7 +4,7 @@ import model.creditCard.CreditCard;
 import model.customer.Customer;
 import model.enumeration.AccountType;
 
-public class SpecialAccount extends Account{
+public class SpecialAccount extends Account {
     private Integer idSpecialAccount;
     private Double limitAmount;
 
@@ -23,6 +23,7 @@ public class SpecialAccount extends Account{
     public void setLimitAmount(Double limitAmount) {
         this.limitAmount = limitAmount;
     }
+
     public void setAccountNumber(String accountNumber) {
         this.accountNumber = accountNumber;
     }
@@ -43,13 +44,13 @@ public class SpecialAccount extends Account{
         this.customer = customer;
     }
 
-    public void specialWithdraw(Double money){
-        if(this.balance <= money){
+    public void specialWithdraw(Double money) {
+        if (this.balance <= money) {
             balance = balance - money;
             limitAmount = balance + limitAmount;
             balance = 0.0;
-                        }
         }
+    }
 
 
 }

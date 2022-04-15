@@ -20,6 +20,7 @@ public class ManageAccount {
         CreditCard creditCard2 = new CreditCard();
         SpecialAccount specialAccount = new SpecialAccount();
 
+        String accountSelection;
         int selectOption;
 
         legal.setIdLegalEntity(1);
@@ -34,7 +35,10 @@ public class ManageAccount {
         specialAccount.setIdSpecialAccount(1);
         specialAccount.setLimitAmount(1000.00);
         specialAccount.setAccountType(AccountType.ESPECIAL_ACCOUNT);
+        specialAccount.setBalance(10.00);
         specialAccount.setCustomer(legal);
+        specialAccount.setAccountNumber("1111");
+        specialAccount.setCreditCard(creditCard2);
 
 
         individual.setIdCustomerIndiv(1);
@@ -55,51 +59,97 @@ public class ManageAccount {
 
         do {
 
-            System.out.println("Digite uma opção :\n" +
-                    "1 (Para sacar)\n" +
-                    "2 (Para depositar)\n" +
-                    "3 (Para extrato)\n" +
-                    "4 (Informações da sua conta)\n" +
-                    "5 (Saque Especial)\n" +
-                    "6 (Encerrar)");
+            System.out.println("Digite o número da conta: ");
+            accountSelection = scanner.next();
+            if (accountSelection.equals("9999")) {
 
-            selectOption = scanner.nextInt();
+                do {
+                    System.out.println("Digite uma opção :\n" +
+                            "1 (Para sacar)\n" +
+                            "2 (Para depositar)\n" +
+                            "3 (Para extrato)\n" +
+                            "4 (Informações da sua conta)\n" +
+                            "0 (Encerrar)");
 
-            switch (selectOption) {
-                case 1:
-                    System.out.println("Digite o valor para saque: ");
-                    double withdrawCash = scanner.nextDouble();
-                    currentAccount.withdrawCash(withdrawCash);
-                    currentAccount.checkBalance(currentAccount.getAccountNumber());
-                    break;
-                case 2:
-                    System.out.println("Digite o valor do depósito: ");
-                    double depositAmount = scanner.nextDouble();
-                    currentAccount.cashDeposit(depositAmount);
-                    break;
-                case 3:
-                    currentAccount.checkBalance(currentAccount.getAccountNumber());
-                    break;
-                case 4:
-                    currentAccount.obtainAccountData(currentAccount.getAccountNumber());
-                    break;
-                case 5:
-                    if(currentAccount.getAccountType() == AccountType.CURRENT_ACCOUNT){
-                        System.out.println("Sua conta não possui essa função!");
+                    selectOption = scanner.nextInt();
+
+                    switch (selectOption) {
+                        case 1:
+                            System.out.println("Digite o valor para saque: ");
+                            double withdrawCash = scanner.nextDouble();
+                            currentAccount.withdrawCash(withdrawCash);
+                            currentAccount.checkBalance(currentAccount.getAccountNumber());
+                            break;
+                        case 2:
+                            System.out.println("Digite o valor do depósito: ");
+                            double depositAmount = scanner.nextDouble();
+                            currentAccount.cashDeposit(depositAmount);
+                            break;
+                        case 3:
+                            currentAccount.checkBalance(currentAccount.getAccountNumber());
+                            break;
+                        case 4:
+                            currentAccount.obtainAccountData(currentAccount.getAccountNumber());
+                            break;
+                        case 5:
+                            System.out.println("Fim");
+                            break;
+                        default:
+                            System.out.println("Opção não encontrada. Tente novamente!");
                     }
-                    else if(specialAccount.getAccountType() == AccountType.ESPECIAL_ACCOUNT) {
-                        System.out.println("Digite o valor para saque: ");
-                        double specialWithdrawValue = scanner.nextDouble();
-                        specialAccount.specialWithdraw(specialWithdrawValue);
-                        specialAccount.checkBalance(specialAccount.getAccountNumber());
+                } while (selectOption != 0);
+            } else if (accountSelection.equals("1111")) {
+                do {
+
+                    System.out.println("Digite uma opção :\n" +
+                            "1 (Para sacar)\n" +
+                            "2 (Para depositar)\n" +
+                            "3 (Para extrato)\n" +
+                            "4 (Informações da sua conta)\n" +
+                            "5 (Saque Especial)\n" +
+                            "0 (Encerrar)");
+
+                    selectOption = scanner.nextInt();
+
+                    switch (selectOption) {
+                        case 1:
+                            System.out.println("Digite o valor para saque: ");
+                            double withdrawCash = scanner.nextDouble();
+                            specialAccount.withdrawCash(withdrawCash);
+                            specialAccount.checkBalance(specialAccount.getAccountNumber());
+                            break;
+                        case 2:
+                            System.out.println("Digite o valor do depósito: ");
+                            double depositAmount = scanner.nextDouble();
+                            specialAccount.cashDeposit(depositAmount);
+                            break;
+                        case 3:
+                            specialAccount.checkBalance(specialAccount.getAccountNumber());
+                            break;
+                        case 4:
+                            specialAccount.obtainAccountData(specialAccount.getAccountNumber());
+                            System.out.println("Você ainda tem R$" + specialAccount.getLimitAmount() + " de limite especial.");
+                            break;
+                        case 5:
+                            if (specialAccount.getAccountType() == AccountType.ESPECIAL_ACCOUNT) {
+                                System.out.println("Digite o valor para saque: ");
+                                double specialWithdrawValue = scanner.nextDouble();
+                                specialAccount.specialWithdraw(specialWithdrawValue);
+                                specialAccount.checkBalance(specialAccount.getAccountNumber());
+                                System.out.println("Você ainda tem R$" + specialAccount.getLimitAmount() + " de limite especial.");
+                            }
+                            break;
+                        case 0:
+                            System.out.println("Fim");
+                            break;
+                        default:
+                            System.out.println("Opção não encontrada. Tente novamente!");
                     }
-                    break;
-                case 6:
-                    System.out.println("Fim");
-                    break;
-                default:
-                    System.out.println("Opção não encontrada. Tente novamente!");
+                } while (selectOption != 0);
+
+            } else {
+                System.out.println("Conta inexistente!");
             }
-        }while (selectOption != 6);
+        }while (!accountSelection.equals("0"));
     }
 }
