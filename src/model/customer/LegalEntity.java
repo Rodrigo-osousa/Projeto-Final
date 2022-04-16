@@ -1,6 +1,6 @@
 package model.customer;
 
-public class LegalEntity {
+public class LegalEntity extends Customer {
     private Integer idLegalEntity;
     private String cnpj;
     private String companyName;
