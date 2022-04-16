@@ -91,7 +91,7 @@ public class ManageAccount {
                         case 4:
                             currentAccount.obtainAccountData(currentAccount.getAccountNumber());
                             break;
-                        case 5:
+                        case 0:
                             System.out.println("Fim");
                             break;
                         default:
