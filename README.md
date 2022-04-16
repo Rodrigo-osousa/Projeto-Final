@@ -6,13 +6,11 @@
 
 ## Índice 
 
-* [Título e Imagem de capa](#Título-e-Imagem-de-capa)
-* [Índice](#índice)
 * [Descrição do Projeto](#descrição-do-projeto)
-* [Status do Projeto](#status-do-Projeto)
+* [Status do Projeto](#status-do-projeto)
 * [Funcionalidades e Demonstração da Aplicação](#funcionalidades-e-demonstração-da-aplicação)
 * [Tecnologias utilizadas](#tecnologias-utilizadas)
-* [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras)
+* [Pessoas Desenvolvedoras do Projeto](#pessoas-desenvolvedoras-do-projeto)
 * [Conclusão](#conclusão)
 
 ## Descrição do Projeto
@@ -22,12 +20,12 @@
 <p>A atividade foi realizada em grupo e versionado com a ferramenta GitHub Desktop:</p>
 
 
-{{{{{{{{{{{{{Imagem aqui}}}}}}}}}}}}}
+![Screenshot_1](https://user-images.githubusercontent.com/79177544/163655343-3bd6eaef-39c0-43da-b8bf-a6b0ee86c49d.png)
 
 
 <p>A organização e o planejamento foram feitos com auxílio da farramentas  Trello e Google Diagrams:</p>
 
-{{{{{{{{{{{{{{{{Imagem aqui}}}}}}}}}}}}}}}}
+![Trello](https://user-images.githubusercontent.com/79177544/163655431-e9afa6e1-e1ac-4aab-96f1-54c7d8e9a43b.gif)
 
 
 ## Status do projeto
@@ -103,8 +101,7 @@ SpecialAccount specialAccount = new SpecialAccount();
 
 Ao iniciarmos a aplicação nos é solicitado um conta antes de apresentar o menu devido a função adicional da conta especial: </p>
 
-{{{{{{{{{imagem aqui}}}}}}}}}
-
+![Aplicação](https://user-images.githubusercontent.com/79177544/163655733-e7317f24-aae1-4169-af4a-25eb4f12edd2.gif)
 
 
 <p>A aplicação permite realizar diversas funções e apenas será finalizada se escolher a opção 0 (Encerrar).</p>
@@ -129,4 +126,4 @@ Ao iniciarmos a aplicação nos é solicitado um conta antes de apresentar o men
  
 <p>Esta aplicação foi desenvolvida em equipe onde cada desenvolvedor contribuiu com suas ideias e conhecimentos. Desta forma compartilhamos experiências ao mesmo tempo em que esta aplicação foi tomando forma.</p> 
   
-<p>Cada implementação ou mudança no código foi realizada mediante a aprovação de todos os membros, assim quando um não entendia algum ponto o assunto era debatido até não existir dúvida.</p>
+<p>Cada implementação ou mudança no código foi realizada mediante a aprovação de todos os membros, assim quando um não entendia algum ponto o assunto era debatido até não existir dúvidas.</p>
